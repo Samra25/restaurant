@@ -1,0 +1,64 @@
+﻿@model restaurant.Models.Restaurant
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header" style="background-color: #002D62; color: white;">
+        <h4 class="mb-0">Restaurant Details</h4>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+            <!-- Restaurant Name -->
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label" style="color: #002D62;">Restaurant Name</label>
+                <input asp-for="Name" class="form-control" style="border-color: #002D62;" placeholder="Enter restaurant name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Address -->
+            <div class="mb-3">
+                <label asp-for="Address" class="form-label" style="color: #002D62;">Address</label>
+                <input asp-for="Address" class="form-control" style="border-color: #002D62;" placeholder="Enter address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label" style="color: #002D62;">Phone</label>
+                <input asp-for="Phone" class="form-control" style="border-color: #002D62;" placeholder="Enter phone number" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label" style="color: #002D62;">Email</label>
+                <input asp-for="Email" class="form-control" style="border-color: #002D62;" placeholder="Enter email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <!-- Opening Hours -->
+            <div class="mb-3">
+                <label asp-for="OpeningHours" class="form-label" style="color: #002D62;">Opening Hours</label>
+                <input asp-for="OpeningHours" class="form-control" style="border-color: #002D62;" placeholder="Enter opening hours" />
+                <span asp-validation-for="OpeningHours" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-lg" style="background-color: #002D62; color: white;">Create</button>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-end">
+        <a href="@Url.Action("Index")" class="btn btn-outline-dark" style="color: #002D62;">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
